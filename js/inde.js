@@ -28,37 +28,29 @@ const cargarTabla = () =>{
         let tdHorario = document.createElement("td");
         tdHorario.innerText = p.horario;
         tdHorario.classList.add("text-center");
-        let Desc = document.createElement("td");
+        let tdDesc = document.createElement("td");
         tdDesc.innerHTML = p.descripcion;
         let tdValor = document.createElement("td");
-        tdValor.innerText = p.valor
+        tdValor.innerHTML = p.valor
         let tdOferta = document.createElement("td");
         let icono = document.createElement("i");
-        if(p.horario == "Desayuno",p.valor >= 1000,p.valor <= 10000){
+        if((p.horario == "Desayuno") & (p.valor >= 1000) & (p.valor < 5000)){
+            icono.classList.add("fas","fa-check","text-success","fa-3");
+        }else if((p.horario == "Almuerzo") & (p.valor >= 10000) & (p.valor < 15000)){
+            icono.classList.add("fas","fa-check","text-success","fa-3");
+        }else if((p.horario == "Once")&(p.valor >= 5000) &(p.valor < 10000)){
+            icono.classList.add("fas","fa-check","text-success","fa-3");
+        }else if((p.horario == "Cena") & (p.valor < 20000)){
             icono.classList.add("fas","fa-check","text-success","fa-3");
         }else{
             icono.classList.add("fas","fa-times","text-danger","fa-3");
         };
-        if(p.horario == "Almuerzo", p.valor >= 10000, p.valor <= 20000){
-            icono.classList.add("fas","fa-check","text-success","fa-3");
-        }else{
-            icono.classList.add("fas","fa-times","text-danger","fa-3");
-        };
-        if(p.horario == "Once",p.valor >= 5000, p.valor <= 15000){
-            icono.classList.add("fas","fa-check","text-success","fa-3");
-        }else{
-            icono.classList.add("fas","fa-times","text-danger","fa-3");
-        };
-        if(p.horario == "Cena",p.valor > 15000){
-            icono.classList.add("fas","fa-check","text-success","fa-3");            
-        }else{
-            icono.classList.add("fas","fa-times","text-danger","fa-3");
-        };
-        tr.appendChild(tdNro);
+        tdOferta.appendChild(icono);
+
         tr.appendChild(tdNombre);
         tr.appendChild(tdHorario);
-        tr.appendChild(tdDesc);
         tr.appendChild(tdValor);
+        tr.appendChild(tdDesc);
         tr.appendChild(tdOferta);
         tbody.appendChild(tr);
     };
@@ -66,14 +58,14 @@ const cargarTabla = () =>{
 document.querySelector("#registrar-btn").addEventListener("click",()=>{
      let nombre = document.querySelector("#nombre-txt").value;
      let descripcion = tinymce.get("descripcion-txt").getContent();
-     let horario = document.querySelector("#horario-desayuno").checked;
+     let horario = document.querySelector("#tipo-select").value;
      let valor =  document.querySelector("#valor").value;
 
      let pedido = {};
      pedido.nombre = nombre;
      pedido.descripcion = descripcion;
      pedido.horario = horario;
-     pedido.value = valor;
+     pedido.valor = valor;
      pedidos.push(pedido);
      cargarTabla();
      Swal.fire("Registrado","Orden Registrada","success");

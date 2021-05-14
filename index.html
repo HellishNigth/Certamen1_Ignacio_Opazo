@@ -39,27 +39,17 @@
                             <input class="from-control"type="text"id="nombre-txt">
                         </div>
                         <div class="mb-3">
-                            <label for="horario-rb">Horario</label>
-                            <div class="form-check form-check-inline">
-                                <input type="radio"class="form-check-input"name="horario-rb"checked id="horario-desayuno">
-                                <label for="horario-desayuno"class="form-check-label">Desayuno</label>
-                            </div>
-                            <div class="form-check label form-check-inline">
-                                <input type="radio" name="horario-rb" id="horario-almuerzo"class="form-check-input">
-                                <label for="horario-almuerzo"class="form-check-label">Almuerzo</label>
-                            </div>
-                            <div class="form-check label form-check-inline">
-                                <input type="radio" name="horario-rb" id="horario-once"class="form-check-input">
-                                <label for="horario-once"class="form-check-label">Once</label>
-                            </div>
-                            <div class="form-check label form-check-inline">
-                                <input type="radio" name="horario-rb" id="horario-cena"class="form-check-input">
-                                <label for="horario-cena"class="form-check-label">cena</label>
-                            </div>
+                            <label for="tipo-select"class="from-label">Horario: </label>
+                            <select id="tipo-select" class="form-select">
+                                <option value="Desayuno">Desayuno</option>
+                                <option value="Almuerzo">Almuerzo</option>
+                                <option value="Once">Once</option>
+                                <option value="Cena">Cena</option>
+                            </select>
                         </div>
                         <div class="mb-3">
-                            <label for="valor">Valor (1000-15000)</label>
-                            <input type="number"id="valor"name="valor"min="1000"max="15000">
+                            <label for="valor">Valor (1000-20000)</label>
+                            <input type="number"id="valor"name="valor"min="1000"max="20000">
                         </div>
                         <div class="mb-3">
                             <label class="from-label"for="descripcion-txt">Descripción</label>
@@ -91,7 +81,6 @@
                         <table class="table table-hover table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Nro</th>
                                     <th>Nombre</th>
                                     <th>Horario</th>
                                     <th>Valor</th>
